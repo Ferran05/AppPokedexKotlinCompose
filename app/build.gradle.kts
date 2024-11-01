@@ -70,4 +70,7 @@ dependencies {
 
     // GSON
     implementation(libs.converter.gson)
+
+    // NAVIGATION
+    implementation(libs.androidx.navigation.compose)
 }

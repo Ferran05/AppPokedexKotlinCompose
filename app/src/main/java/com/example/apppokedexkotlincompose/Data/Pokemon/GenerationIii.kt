@@ -2,6 +2,6 @@ package com.example.apppokedexkotlincompose.Data.Pokemon
 
 data class GenerationIii(
     val emerald: Emerald,
-    val firered-leafgreen: FireredLeafgreen,
-    val ruby-sapphire: RubySapphire
+    val firered_leafgreen: FireredLeafgreen,
+    val ruby_sapphire: RubySapphire
 )

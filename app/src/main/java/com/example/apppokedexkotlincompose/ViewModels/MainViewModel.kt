@@ -22,6 +22,7 @@ class MainViewModel: ViewModel() {
             try {
                 val result = service.pokemon(nomPokemon)
                 _pokemon.value = result
+                Log.w("MainViewModel","Hola" + result.toString())
             } catch (e: Exception){
                 Log.e("MainViewModel","Error at setting pokemon", e)
             }
