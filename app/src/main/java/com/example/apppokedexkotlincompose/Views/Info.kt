@@ -102,7 +102,7 @@ fun Infomain (viewModel: MainViewModel, namePokemon: String, navController: NavC
                     Row(horizontalArrangement = Arrangement.SpaceEvenly, modifier = Modifier.fillMaxWidth()){
 
                         Text(pokemon.weight.toString() + " kg")
-                        Text(pokemon.height.toString() + " cm")
+                        Text((pokemon.height.toFloat() / 10).toString() + " m")
                     }
 
 
