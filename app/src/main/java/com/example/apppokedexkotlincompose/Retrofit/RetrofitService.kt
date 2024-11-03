@@ -1,5 +1,6 @@
 package com.example.apppokedexkotlincompose.Retrofit
 
+import com.example.apppokedexkotlincompose.Data.Facts.Facts
 import com.example.apppokedexkotlincompose.Data.Pokemon.Pokemon
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,6 +11,9 @@ import retrofit2.http.Query
 interface RetrofitService {
     @GET("pokemon/{name}")
     suspend fun pokemon(@Path("name") name: String): Pokemon
+
+    @GET("pokemon-species/{id}")
+    suspend fun facts(@Path("id") id: Int): Facts
 
 }
 

@@ -1,6 +1,8 @@
 package com.example.apppokedexkotlincompose.Views
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
@@ -18,13 +20,14 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.apppokedexkotlincompose.ViewModels.MainViewModel
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 
 @Composable
-fun Main(viewModel: MainViewModel){
+fun Main(viewModel: MainViewModel, navController: NavController){
 
-    var pokemon by remember { mutableStateOf(TextFieldValue(" ")) }
+    var pokemon by remember { mutableStateOf(TextFieldValue("")) }
     //val pokemon by viewModel.pokemon.collectAsState()
-    Column {
+    Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.padding(top = 50.dp)) {
         TextField(
             value = pokemon, onValueChange = { pokemon = it },
             placeholder = { Text("Buscador") },
@@ -35,10 +38,14 @@ fun Main(viewModel: MainViewModel){
         )
 
         Button(
-            onClick = {viewModel.setpokemon("ditto")}
+            onClick = {
+                viewModel.setpokemon(pokemon.text)
+                navController.navigate("info/${pokemon.text}")
+            },
+            modifier = Modifier.padding(top = 25.dp)
         )
         {
-            Text("hola")
+            Text("Buscar")
         }
     }
 }

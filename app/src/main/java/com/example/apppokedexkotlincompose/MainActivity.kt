@@ -1,6 +1,7 @@
 package com.example.apppokedexkotlincompose
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -16,6 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.apppokedexkotlincompose.ViewModels.MainViewModel
+import com.example.apppokedexkotlincompose.Views.Infomain
 import com.example.apppokedexkotlincompose.Views.Main
 import com.example.apppokedexkotlincompose.ui.theme.AppPokedexKotlinComposeTheme
 
@@ -32,7 +34,16 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "main"){
                     composable("main"){
-                        Main(viewModel = MainViewModel())
+                        Main(viewModel = MainViewModel(), navController = navController)
+                    }
+                    composable("info/{nom}") { backStackEntry ->
+                        val nom = backStackEntry.arguments?.getString("nom")
+                        if (nom != null) {
+                            Infomain(namePokemon = nom.toString(), navController = navController, viewModel = viewModel)
+                        }
+                        else{
+                            Log.e("bro no tens nom", "jajajajajajajajajajajajajaj")
+                        }
                     }
                 }
             }
