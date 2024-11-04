@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "main"){
                     composable("main"){
-                        Main(viewModel = MainViewModel(), navController = navController)
+                        Main(viewModel = viewModel, navController = navController)
                     }
                     composable("info/{nom}") { backStackEntry ->
                         val nom = backStackEntry.arguments?.getString("nom")

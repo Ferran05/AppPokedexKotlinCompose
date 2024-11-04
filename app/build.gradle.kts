@@ -76,4 +76,8 @@ dependencies {
 
     //COIL
     implementation(libs.coil.compose)
+
+    //SNAP
+    implementation("com.google.accompanist:accompanist-pager:0.24.7-alpha")
+
 }
